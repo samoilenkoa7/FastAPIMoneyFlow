@@ -1,6 +1,7 @@
 from typing import List
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
+from starlette import status
 
 from src.workshop.models.operations import Operations, OperationKind, OperationCreate, OperationUpdate
 from src.workshop.services.operations import OperationsService
@@ -12,32 +13,13 @@ router = APIRouter(
 )
 
 
-# @router.get('/', response_model=List[Operations])
-# def get_operations(session: Session = Depends(get_session)):
-#     operations = (
-#         session
-#         .query(tables.Operation)
-#         .all()
-#     )
-#     return operations
-
-
 @router.get('/', response_model=list[Operations])
 def get_operations(
-        service: OperationsService = Depends(),
-        kind: OperationKind = None,
-        user: User = Depends(get_current_user)
-):
-    return service.get_list(param=kind, user_id=user.id)
-
-
-@router.get('/filter/', response_model=List[Operations])
-def get_operations_by_filter(
         kind: OperationKind = None,
         service: OperationsService = Depends(),
         user: User = Depends(get_current_user)
 ):
-    return service.get_list(param=kind, user_id=user.id)
+    return service.get_list(kind=kind, user_id=user.id)
 
 
 @router.post('/', response_model=Operations)
@@ -55,7 +37,11 @@ def get_operation(
         service: OperationsService = Depends(),
         user: User = Depends(get_current_user)
 ):
-    return service.get(operation_id=pk, user_id=user.id)
+    operation = service.get(user_id=user.id, operation_id=pk)
+    if not operation:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND,
+                            detail='Operation with provided user id and operation id is not found')
+    return operation
 
 
 @router.delete('/delete/{id}/')
