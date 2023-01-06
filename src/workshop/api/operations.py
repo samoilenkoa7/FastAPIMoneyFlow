@@ -1,10 +1,8 @@
-from typing import List
-
 from fastapi import APIRouter, Depends, HTTPException
 from starlette import status
 
-from src.workshop.models.operations import Operations, OperationKind, OperationCreate, OperationUpdate
-from src.workshop.services.operations import OperationsService
+from workshop.models.operations import Operations, OperationKind, OperationCreate, OperationUpdate
+from workshop.services.operations import OperationsService
 from workshop.models.auth import User
 from workshop.services.auth import get_current_user
 

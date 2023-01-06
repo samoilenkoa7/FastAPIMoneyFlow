@@ -1,0 +1,31 @@
+version: "2"
+services:
+  backend:
+    build: ./src
+    ports:
+      - "8000:8000"
+    expose:
+      - "8000:8000"
+    depends_on:
+      - db
+    links:
+      - db
+    command: python3 -m uvicorn workshop.main:app --reload --host 0.0.0.0 --port 8000
+  db:
+    image: postgres:13
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      - "POSTGRES_HOST_AUTH_METHOD=trust"
+    ports:
+      - "5432:5432"
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    links:
+      - backend
+    depends_on:
+      - backend
+volumes:
+  pgdata: Null

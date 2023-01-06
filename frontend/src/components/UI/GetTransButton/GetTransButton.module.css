@@ -1,0 +1,16 @@
+.getTransButton {
+    border: solid teal 3px;
+    width: 200px;
+    height: 60px;
+    background-color: transparent;
+    color: teal;
+    transition: ease 500ms;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.getTransButton:hover {
+    color: white;
+    background-color: teal;
+    transform: scale(1.05);
+}
