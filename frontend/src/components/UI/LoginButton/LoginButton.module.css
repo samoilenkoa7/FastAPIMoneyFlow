@@ -1,0 +1,17 @@
+.loginButton {
+    background-color: transparent;
+    border: 3px solid teal;
+    width: 90px;
+    height: 40px;
+    transition: ease 500ms;
+    color: teal;
+    font-size: 20px;
+    margin: 15px 5px;
+    cursor: pointer;
+}
+
+.loginButton:hover {
+    background-color: teal;
+    color: white;
+    transform: scale(1.05);
+}

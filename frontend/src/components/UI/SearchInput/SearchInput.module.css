@@ -1,0 +1,11 @@
+.mySearchInput {
+    border: teal 3px solid;
+    width: 170px;
+    height: 40px;
+    font-size: 20px;
+    margin: 10px 5px;
+}
+
+.mySearchInput::placeholder {
+    text-align: center;
+}
