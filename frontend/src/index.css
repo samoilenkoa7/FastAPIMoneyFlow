@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.loginForm {
+  width: 300px;
+  background-color: aliceblue;
+  position: absolute;
+  left: 40%;
+  border: 3px black solid;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginForm form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.transaction-item {
+  border: teal 2px solid;
+  width: 310px;
+  height: 100px;
+  margin: 30px 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.transaction-item h3 {
+  padding-right: 35px;
+}
+
+.transaction-item p {
+  margin: 10px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.transaction {
+  align-self: center;
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 90%;
+  align-items: center;
+  justify-content: center;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.all__transactions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.all__transactions div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 0;
+  flex-wrap: wrap;
+}
+
+.header__items-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-item {
+  margin: 20px;
+}
+
+.create__transaction {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.create__transaction label {
+  font-size: 20px;
+  font-weight: bold;
+  color: teal;
+}
+
+.create__transaction input {
+  font-size: 15px;
+  color: teal;
+  font-weight: bold;
+}
+
+.create__transaction select {
+  border: 3px solid teal;
+  width: 180px;
+  height: 48px;
+  font-weight: bold;
+  font-size: 15px;
+  color: teal;
+}
+
+.delete-icon {
+  width: 30px;
+  height: 30px;
+  float: right;
+  cursor: pointer;
+  transition: ease 300ms;
+}
+
+.delete-icon:hover {
+  transform: scale(1.04);
+  opacity: 0.65;
+}
+
+.transaction__wrapper {
+
+}
+
+.all__transactions-wrapper {
+  display: flex;
+  flex-direction: column;
+}
